@@ -1,0 +1,42 @@
+/* src/App.css */
+
+:root {
+  /* You can tweak these later */
+  --nav-height: 60px;
+  --footer-height: 116px;
+
+  /* Colors already in use */
+  --color-navy: #000435;
+  --color-yellow: #fde047;
+  --color-beige: #f2f0e6;
+}
+
+/* Common breakpoints */
+@media (max-width: 1200px) { :root { --container-padding: 20px; } }
+@media (max-width: 992px)  { :root { --container-padding: 18px; } }
+@media (max-width: 768px)  { :root { --container-padding: 16px; } }
+@media (max-width: 480px)  { :root { --container-padding: 14px; } }
+
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main > * {
+  margin-bottom: 0; /* prevents bottom margin from pushing the footer */
+}
+
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+

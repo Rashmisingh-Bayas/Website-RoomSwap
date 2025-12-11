@@ -1,0 +1,115 @@
+.collage-section {
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collage-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 650px;
+  /* NEW: Creates a 3D space for the hover effect */
+  perspective: 1000px;
+}
+
+.collage-item {
+  position: absolute;
+  background: #000435;
+  padding: 7px;
+  border-radius: 6px;
+  width: 270px;
+  /* NEW: A deeper, softer shadow for more depth */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 15px 40px rgba(0, 0, 0, 0.15);
+  /* NEW: A smoother, slightly longer transition */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.collage-item:hover {
+  /* NEW: Lifts the card up and makes it larger for a "pop-out" effect */
+  transform: scale(1.1) translateY(-15px) rotate(0deg) !important;
+  /* NEW: A more prominent shadow when hovered */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.collage-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.collage-label {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fde047;
+  color: #000435;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Specific positions and rotations for each image --- */
+
+.collage-item--dining {
+  top: 0;
+  left: 10%;
+  transform: rotate(-15deg);
+}
+
+.collage-item--bed {
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%) rotate(5deg);
+  z-index: 2;
+}
+
+.collage-item--living {
+  top: 60%;
+  left: 15%;
+  transform: rotate(-10deg);
+}
+
+/* --- Your existing responsive styles (Unchanged) --- */
+
+@media (max-width: 768px) {
+  .collage-container {
+    position: static;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .collage-item {
+    position: static;
+    transform: none !important;
+    width: 100%;
+    /* The enhanced shadow will not be visible here due to static position */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .collage-item:hover {
+      transform: scale(1.05) !important; /* A simple scale hover for mobile */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .collage-label {
+    position: static;
+    transform: none;
+    margin-top: 8px;
+    bottom: auto;
+    left: auto;
+  }
+}

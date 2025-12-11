@@ -1,0 +1,79 @@
+/* src/components/Footer.css */
+
+.site-footer {
+  background-color: #000435;
+  color: #e5e7eb;
+  padding: 20px 0; /* Balanced vertical padding  */
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center; /* This groups the columns in the middle */
+  flex-wrap: wrap;
+  gap: 80px; /* The space between each column */
+}
+
+.footer-column {
+  min-width: 150px;
+  text-align: left;
+}
+
+.footer-column h4 {
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 16px; /* Space between heading and links */
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 10px; /* Space between each link */
+}
+
+.footer-column a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-column a:hover {
+  color: #fde047;
+  text-decoration: underline;
+}
+/* --- Responsive Styles --- */
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 0; /* Slightly less padding */
+  }
+
+  .footer-container {
+    gap: 32px; /* Reduce gap between columns */
+    justify-content: flex-start; /* Align columns to the left */
+  }
+
+  /* Create a 2x2 grid for tablets and mobile */
+  .footer-column {
+    flex-basis: calc(50% - 16px); /* Each column takes up half the width minus half the gap */
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  /* On very small screens, we make the text a bit smaller */
+  .footer-column h4 {
+    font-size: 0.9rem;
+  }
+
+  .footer-column a {
+    font-size: 0.8rem;
+  }
+}
